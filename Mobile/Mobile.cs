@@ -129,7 +129,7 @@ namespace MobileLibrary
         /// <returns>Returns true when phone call started correctly. False when active or passive phone is already busy (already talking).</returns>
         public bool StartCallTo(Mobile passive)
         {
-            if (!_hasActiveCall && !passive._hasActiveCall)
+            if (!_hasActiveCall && !passive._hasActiveCall && this != passive)
             {
                 _passivePartner = passive;
                 passive._activePartner = this;

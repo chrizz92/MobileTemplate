@@ -61,11 +61,11 @@ namespace ConsoleApp
             {
                 Console.Write("Bitte Namen des Gesprächpartners eingeben: ");
                 nameOfPassive = Console.ReadLine();
-                while (!mobilephones[indexPassive].Name.Equals(nameOfPassive) && indexPassive < mobilephones.Length && mobilephones[indexPassive] != null)
+                while (mobilephones[indexPassive] != null && !mobilephones[indexPassive].Name.Equals(nameOfPassive) && indexPassive < mobilephones.Length)
                 {
                     indexPassive++;
                 }
-                if (mobilephones[indexPassive].Name.Equals(nameOfPassive))
+                if (mobilephones[indexPassive] != null && mobilephones[indexPassive].Name.Equals(nameOfPassive))
                 {
                     bool callStatus = mobilephones[indexActive].StartCallTo(mobilephones[indexPassive]);
                     if (callStatus)
@@ -103,12 +103,12 @@ namespace ConsoleApp
             Console.Clear();
             Console.Write("Name des Telefons eingeben: ");
             name = Console.ReadLine();
-            while (!mobilephones[position].Name.Equals(name) && position < mobilephones.Length && mobilephones[position] != null)
+            while (mobilephones[position] != null && !mobilephones[position].Name.Equals(name) && position < mobilephones.Length)
             {
                 position++;
             }
 
-            if (mobilephones[position].Name.Equals(name))
+            if (mobilephones[position] != null && mobilephones[position].Name.Equals(name))
             {
                 bool hasCallStopped = mobilephones[position].StopCall();
                 if (hasCallStopped)
@@ -137,12 +137,12 @@ namespace ConsoleApp
             Console.Clear();
             Console.Write("Name des Telefons eingeben: ");
             name = Console.ReadLine();
-            while (!mobilephones[position].Name.Equals(name) && position < mobilephones.Length && mobilephones[position] != null)
+            while (mobilephones[position] != null && !mobilephones[position].Name.Equals(name) && position < mobilephones.Length)
             {
                 position++;
             }
 
-            if (mobilephones[position].Name.Equals(name))
+            if (mobilephones[position] != null && mobilephones[position].Name.Equals(name))
             {
                 Console.WriteLine("");
                 Console.WriteLine($"Sekunden aktiv:          {mobilephones[position].SecondsActive}");
